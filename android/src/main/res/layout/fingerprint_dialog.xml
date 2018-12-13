@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fingerprint_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     android:weightSum="1">
 
-    <!-- https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.btn3al2l2 appCompat works if app is srcCompat 7 activity-->
-    <!-- app:srcCompat="@drawable/ic_fp_40px" -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_circle"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/fingerprint_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:src="@drawable/ic_fp_40px" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/fingerprint_description"
@@ -17,63 +35,44 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp"
-        android:gravity="left"
+        android:gravity="center"
         android:text="TextView"
-        android:textColor="#696969"
+        android:textColor="#212121"
         android:textSize="17dp" />
 
-
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/fingerprint_sensor_description"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="25dp"
-        android:paddingRight="20dp"
-        android:paddingTop="25dp">
-
-        <ImageView
-            android:id="@+id/fingerprint_icon"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="25dp"
-            android:gravity="left"
-            android:src="@drawable/ic_fp_40px" />
-
-        <TextView
-            android:id="@+id/fingerprint_sensor_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:gravity="left|center_vertical"
-            android:text="Touch sensor"
-            android:textColor="#696969"
-            android:textSize="15dp" />
-    </LinearLayout>
+        android:text="Touch sensor"
+        android:textColor="#797979"
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/fingerprint_error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="#F00"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/cancel_button"
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:paddingRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:paddingLeft="15dp"
-        android:layout_marginEnd="10dp"
-        android:background="#fff"
+        android:paddingRight="15dp"
         android:text="Cancel"
-        android:textColor="#696969" />
+        android:background="@drawable/ic_button"
+        android:textColor="#212121" />
 
 </LinearLayout>
