@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -87,7 +88,7 @@ public class FingerprintDialog extends DialogFragment implements FingerprintHand
                 return true; // pretend we've processed it
             }
         });
-
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         return v;
     }
 
