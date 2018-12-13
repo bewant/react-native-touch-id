@@ -23,6 +23,7 @@ public class FingerprintDialog extends DialogFragment implements FingerprintHand
     private boolean isAuthInProgress;
 
     private ImageView mFingerprintImage;
+    private TextView mFingerprintDescription;
     private TextView mFingerprintSensorDescription;
     private TextView mFingerprintError;
 
@@ -54,7 +55,7 @@ public class FingerprintDialog extends DialogFragment implements FingerprintHand
         final View v = inflater.inflate(R.layout.fingerprint_dialog, container, false);
 
         final TextView mFingerprintDescription = (TextView) v.findViewById(R.id.fingerprint_description);
-        mFingerprintDescription.setText(this.authReason);
+        mFingerprintDescription.setText(this.dialogTitle);
 
         this.mFingerprintImage = (ImageView) v.findViewById(R.id.fingerprint_icon);
         if (this.imageColor != 0) {
@@ -62,7 +63,7 @@ public class FingerprintDialog extends DialogFragment implements FingerprintHand
         }
 
         this.mFingerprintSensorDescription = (TextView) v.findViewById(R.id.fingerprint_sensor_description);
-        this.mFingerprintSensorDescription.setText(this.sensorDescription);
+        this.mFingerprintSensorDescription.setText(this.authReason);
 
         this.mFingerprintError = (TextView) v.findViewById(R.id.fingerprint_error);
         this.mFingerprintError.setText(this.errorText);
@@ -76,7 +77,6 @@ public class FingerprintDialog extends DialogFragment implements FingerprintHand
             }
         });
 
-        getDialog().setTitle(this.dialogTitle);
         getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
             public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
                 if (keyCode != KeyEvent.KEYCODE_BACK || mFingerprintHandler == null) {
